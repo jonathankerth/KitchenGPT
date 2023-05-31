@@ -5,6 +5,7 @@ import "./Chat.css";
 function Chat() {
 	const [message, setMessage] = useState("");
 	const [chatHistory, setChatHistory] = useState([]);
+	const [isResponseLoading, setResponseLoading] = useState(false); // State to track the response loading status
 
 	// Predefined prompts
 	const prompts = [
@@ -18,22 +19,19 @@ function Chat() {
 	const sendMessage = async (event) => {
 		event.preventDefault();
 
+		setResponseLoading(true); // Set response loading state to true
+
 		// Send the message to your backend server
 		const response = await axios.post("https://kitchengpt.herokuapp.com/chat", {
 			message,
 		});
 
-		//local hosting
-		// const response = await axios.post("http://localhost:1234/chat", {
-		// 	message,
-		// });
-
-		// Update the chat history with the new message and response
 		setChatHistory([
 			...chatHistory,
 			{ message: message, response: response.data },
 		]);
 		setMessage(""); // Clear the input field after sending the message
+		setResponseLoading(false); // Set response loading state to false after receiving the response
 	};
 
 	const selectPrompt = (event) => {
@@ -74,8 +72,15 @@ function Chat() {
 						<p>ChatGPT: {chat.response}</p>
 					</div>
 				))}
+				{isResponseLoading && (
+					<div className="message chatgpt">
+						<p>You: {message}</p>
+						<p>ChatGPT: Response loading...</p>
+					</div>
+				)}
 			</div>
 		</div>
 	);
 }
+
 export default Chat;
