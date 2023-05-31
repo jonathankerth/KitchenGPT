@@ -19,9 +19,14 @@ function Chat() {
 		event.preventDefault();
 
 		// Send the message to your backend server
-		const response = await axios.post("http://localhost:1234/chat", {
+		const response = await axios.post("https://kitchengpt.herokuapp.com/chat", {
 			message,
 		});
+
+		//local hosting
+		// const response = await axios.post("http://localhost:1234/chat", {
+		// 	message,
+		// });
 
 		// Update the chat history with the new message and response
 		setChatHistory([
@@ -38,7 +43,13 @@ function Chat() {
 	return (
 		<div className="chat-container">
 			<form onSubmit={sendMessage}>
-				<select className="prompt-select" onChange={selectPrompt}>
+				<select
+					className="prompt-select"
+					onChange={selectPrompt}
+					onKeyPress={(event) => {
+						if (event.key === "Enter") event.preventDefault();
+					}}
+				>
 					<option>Select a prompt</option>
 					{prompts.map((prompt, index) => (
 						<option key={index} value={prompt}>

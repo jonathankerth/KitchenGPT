@@ -18,7 +18,7 @@
 	margin-bottom: 10px;
 	padding: 10px;
 	border-radius: 5px;
-	border: none;
+	border: 1px solid #ddd;
 }
 
 .chat-container button {
@@ -32,15 +32,46 @@
 
 .chat-history {
 	margin-top: 20px;
+	overflow-y: auto;
+	max-height: 300px;
+}
+
+.chat-history div {
+	background-color: #e6e6e6;
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 10px;
 }
 
 .chat-history p {
 	margin-bottom: 10px;
 }
 
+/* Differentiate user and ChatGPT messages */
+.chat-history .user {
+	background-color: #007bff;
+	color: #fff;
+	margin-left: 50px;
+	text-align: right;
+}
+
+.chat-history .chatgpt {
+	background-color: #e6e6e6;
+	color: #000;
+	margin-right: 50px;
+	text-align: left;
+}
+
 /* Media Query for responsiveness */
 @media (max-width: 480px) {
 	.chat-container {
 		max-width: 300px;
+		padding: 10px;
+	}
+
+	.chat-history .user,
+	.chat-history .chatgpt {
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 }
