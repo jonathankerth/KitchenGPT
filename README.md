@@ -23,7 +23,8 @@ To run this project locally, follow these steps:
 
 1. Clone this repository
 2. Install the dependencies with `npm install`
-3. Start the development server with `npm start`
+3. Reverse comments for local hosting if also locally hosting backend. 
+4. Start the development server with `npm start`
 
 ## Deployment
 
