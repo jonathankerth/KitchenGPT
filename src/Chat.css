@@ -1,6 +1,6 @@
 /* Chat.css */
 .chat-container {
-	max-width: 400px;
+	max-width: 800px;
 	margin: 0 auto;
 	padding: 20px;
 	background-color: #f8f8f8;
@@ -33,7 +33,7 @@
 .chat-history {
 	margin-top: 20px;
 	overflow-y: auto;
-	max-height: 300px;
+	max-height: 500px; /* Increase the value to show more messages */
 }
 
 .chat-history div {
@@ -51,15 +51,19 @@
 .chat-history .user {
 	background-color: #007bff;
 	color: #fff;
-	margin-left: 50px;
+	margin-left: 0; /* Remove the left margin */
+	margin-right: auto; /* Push the user messages to the right */
 	text-align: right;
+	border-radius: 10px 10px 0 10px; /* Add rounded corners to the top right of user messages */
 }
 
 .chat-history .chatgpt {
 	background-color: #e6e6e6;
 	color: #000;
-	margin-right: 50px;
+	margin-left: auto; /* Push the ChatGPT messages to the left */
+	margin-right: 0; /* Remove the right margin */
 	text-align: left;
+	border-radius: 10px 10px 10px 0; /* Add rounded corners to the top left of ChatGPT messages */
 }
 
 /* Media Query for responsiveness */

@@ -9,7 +9,9 @@ function App() {
 				<h1>KitchenGPT</h1>
 				<p>Got a cooking question? Ask away!</p>
 			</header>
-			<Chat />
+			<main className="chatbox">
+				<Chat />
+			</main>
 		</div>
 	);
 }

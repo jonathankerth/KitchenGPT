@@ -1,9 +1,9 @@
 .App {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center; /* Change from 'space-evenly' to 'center' */
 	align-items: center;
-	height: 100vh;
+	min-height: 100vh; /* Change 'height' to 'min-height' for better responsiveness */
 	background-color: #f8f8f8;
 	font-family: Arial, sans-serif;
 }
@@ -18,7 +18,7 @@
 }
 
 .chat-container {
-	width: 400px;
+	width: 600px; /* Increase the width for a wider chat container */
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	padding: 20px;
@@ -27,7 +27,7 @@
 }
 
 .chat-display {
-	max-height: 300px;
+	max-height: 400px; /* Increase the value to show more messages */
 	overflow-y: auto;
 	padding: 10px;
 	border: 1px solid #ddd;
@@ -55,19 +55,19 @@
 
 .input-container {
 	display: flex;
-	margin-top: 10px;
+	justify-content: center; /* Change from 'margin-top' to 'justify-content' to center the input container */
 }
 
 .input-container input {
 	flex-grow: 1;
-	padding: 5px;
+	padding: 10px; /* Increase the padding for better spacing */
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	margin-right: 5px;
 }
 
 .input-container button {
-	padding: 5px 10px;
+	padding: 10px 20px; /* Increase the padding for better spacing */
 	background-color: #007bff;
 	color: #fff;
 	border: none;
