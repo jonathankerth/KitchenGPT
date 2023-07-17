@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import axios from "axios"; // Make sure to install axios with `npm install axios`
+import React, { useState, useRef, useEffect } from "react";
+import axios from "axios";
 import "./Chat.css";
 
 function Chat() {
 	const [message, setMessage] = useState("");
 	const [chatHistory, setChatHistory] = useState([]);
-	const [isResponseLoading, setResponseLoading] = useState(false); // State to track the response loading status
+	const [isResponseLoading, setResponseLoading] = useState(false);
+	const inputRef = useRef(null); // Create a reference to the textarea
 
-	// Predefined prompts
 	const prompts = [
 		"What can I make with ",
 		"How do I make ",
@@ -19,9 +19,8 @@ function Chat() {
 	const sendMessage = async (event) => {
 		event.preventDefault();
 
-		setResponseLoading(true); // Set response loading state to true
+		setResponseLoading(true);
 
-		// Send the message to your backend server
 		const response = await axios.post("https://kitchengpt.herokuapp.com/chat", {
 			message,
 		});
@@ -30,13 +29,21 @@ function Chat() {
 			...chatHistory,
 			{ message: message, response: response.data },
 		]);
-		setMessage(""); // Clear the input field after sending the message
-		setResponseLoading(false); // Set response loading state to false after receiving the response
+		setMessage("");
+		setResponseLoading(false);
 	};
 
 	const selectPrompt = (event) => {
 		setMessage(event.target.value);
 	};
+
+	// Update the height of the textarea when the message state changes
+	useEffect(() => {
+		if (inputRef.current) {
+			inputRef.current.style.height = "auto";
+			inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
+		}
+	}, [message]);
 
 	return (
 		<div className="chat-container">
@@ -55,11 +62,11 @@ function Chat() {
 						</option>
 					))}
 				</select>
-				<input
-					type="text"
+				<textarea
 					value={message}
 					onChange={(event) => setMessage(event.target.value)}
 					className="message-input"
+					ref={inputRef}
 				/>
 				<button type="submit" className="send-button">
 					Send
