@@ -1,9 +1,10 @@
+/* App.css */
 .App {
 	display: flex;
 	flex-direction: column;
-	justify-content: center; /* Change from 'space-evenly' to 'center' */
+	justify-content: center;
 	align-items: center;
-	min-height: 100vh; /* Change 'height' to 'min-height' for better responsiveness */
+	min-height: 100vh;
 	background-color: #f8f8f8;
 	font-family: Arial, sans-serif;
 }
@@ -17,8 +18,8 @@
 	margin-bottom: 20px;
 }
 
-.chat-container {
-	width: 600px; /* Increase the width for a wider chat container */
+.chatbox {
+	width: 70%; /* Allows more flexibility on different screen sizes */
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	padding: 20px;
@@ -26,51 +27,86 @@
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.chat-display {
-	max-height: 400px; /* Increase the value to show more messages */
-	overflow-y: auto;
+/* Chat.css */
+.chat-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.chat-container form {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.chat-container select,
+.chat-container input {
 	padding: 10px;
 	border: 1px solid #ddd;
-	border-radius: 10px;
-	background-color: #fff;
-}
-
-.message {
-	margin-bottom: 10px;
-	padding: 10px;
-	border-radius: 10px;
-}
-
-.user {
-	background-color: #007bff;
-	color: #fff;
-	align-self: flex-start;
-}
-
-.assistant {
-	background-color: #eaf7ff;
-	color: #000;
-	align-self: flex-end;
-}
-
-.input-container {
-	display: flex;
-	justify-content: center; /* Change from 'margin-top' to 'justify-content' to center the input container */
-}
-
-.input-container input {
+	border-radius: 5px;
 	flex-grow: 1;
-	padding: 10px; /* Increase the padding for better spacing */
-	border: 1px solid #ccc;
-	border-radius: 4px;
 	margin-right: 5px;
 }
 
-.input-container button {
-	padding: 10px 20px; /* Increase the padding for better spacing */
+.chat-container button {
+	padding: 10px;
+	border-radius: 5px;
 	background-color: #007bff;
 	color: #fff;
 	border: none;
-	border-radius: 4px;
 	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.chat-container button:hover {
+	background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+.chat-history {
+	margin-top: 20px;
+	overflow-y: auto;
+	max-height: 500px;
+	padding: 0 10px; /* Additional padding for better UX */
+}
+
+.chat-history div {
+	background-color: #e6e6e6;
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	display: flex; /* Add flex display for chat bubble styling */
+	flex-direction: column; /* Stack elements vertically */
+	justify-content: flex-start;
+}
+
+.chat-history p {
+	margin-bottom: 5px; /* Decreased margin for better chat bubble appearance */
+	padding: 10px;
+	border-radius: 10px;
+	width: fit-content; /* Make bubble size dependent on content */
+}
+
+.chat-history .user {
+	background-color: #007bff;
+	color: #fff;
+	align-self: flex-end;
+	border-bottom-right-radius: 0;
+}
+
+.chat-history .chatgpt {
+	background-color: #e6e6e6;
+	color: #000;
+	align-self: flex-start;
+	border-bottom-left-radius: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+	.App {
+		padding: 10px;
+	}
+
+	.chatbox {
+		width: 100%;
+	}
 }
