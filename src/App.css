@@ -10,7 +10,11 @@
 
 .App-header {
 	text-align: center;
-	background-color: #3498db;
+	background-color: #ffffff;
+	background-image: url("https://images.unsplash.com/photo-1506968430777-bf7784a87f23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2942&q=80");
+	background-size: cover; /* this ensures that the image covers the entire element */
+	background-repeat: no-repeat; /* this prevents the image from repeating */
+	background-position: center; /* this centers the image in the background */
 	color: #fff;
 	padding: 20px;
 	border-radius: 5px;
@@ -30,7 +34,11 @@
 
 .App-footer {
 	width: 100%;
-	background-color: #3498db;
+	background-color: #ffffff;
+	background-image: url("https://images.unsplash.com/photo-1506968430777-bf7784a87f23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2942&q=80");
+	background-size: cover; /* this ensures that the image covers the entire element */
+	background-repeat: no-repeat; /* this prevents the image from repeating */
+	background-position: center; /* this centers the image in the background */
 	color: #fff;
 	padding: 10px;
 	text-align: center;
