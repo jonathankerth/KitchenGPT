@@ -30,3 +30,4 @@ Released into the open-source world under the MIT License.
 
 👏 Acknowledgements
 A heartfelt thanks to OpenAI for providing the amazing GPT-3 model that powers KitchenGPT.
+
