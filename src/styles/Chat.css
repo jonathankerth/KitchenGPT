@@ -1,0 +1,118 @@
+.chat-container textarea {
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	resize: none; /* Disables manual resize */
+	overflow: hidden; /* Hides scrollbar */
+}
+
+.chat-container form {
+	display: flex;
+	flex-direction: column;
+}
+
+.chat-container select,
+.chat-container input {
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+.chat-container button {
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+.chat-history {
+	margin-top: 20px;
+	overflow-y: auto;
+	max-height: 500px; /* Increase the value to show more messages */
+}
+
+.chat-history div {
+	background-color: #e6e6e6;
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.chat-history p {
+	margin-bottom: 10px;
+}
+
+/* Differentiate user and ChatGPT messages */
+.chat-history .user {
+	background-color: #007bff;
+	color: #fff;
+	margin-left: 0; /* Remove the left margin */
+	margin-right: auto; /* Push the user messages to the right */
+	text-align: right;
+	border-radius: 10px 10px 0 10px; /* Add rounded corners to the top right of user messages */
+}
+
+.chat-history .chatgpt {
+	background-color: #e6e6e6;
+	color: #000;
+	margin-left: auto; /* Push the ChatGPT messages to the left */
+	margin-right: 0; /* Remove the right margin */
+	text-align: left;
+	border-radius: 10px 10px 10px 0; /* Add rounded corners to the top left of ChatGPT messages */
+}
+.loading-icon {
+	width: 24px;
+	height: 24px;
+	border: 4px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	border-top: 4px solid #3498db;
+	animation: spin 1s linear infinite;
+}
+
+.chat-bubble {
+	display: flex;
+	align-items: center;
+}
+
+.chat-avatar {
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+
+/* Differentiate further between user and ChatGPT */
+.chat-bubble.user {
+	justify-content: flex-end;
+}
+
+.chat-bubble.chatgpt {
+	justify-content: flex-start;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 480px) {
+	.chat-container {
+		max-width: 300px;
+		padding: 10px;
+	}
+
+	.chat-history .user,
+	.chat-history .chatgpt {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}

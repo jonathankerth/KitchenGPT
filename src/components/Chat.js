@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import "./Chat.css";
+import "../styles/Chat.css";
 
 function Chat() {
 	const [message, setMessage] = useState("");
@@ -80,9 +80,9 @@ function Chat() {
 					</div>
 				))}
 				{isResponseLoading && (
-					<div className="message chatgpt">
+					<div className="message chatgpt loading">
 						<p>You: {message}</p>
-						<p>ChatGPT: Response loading...</p>
+						<div className="loading-icon"></div>
 					</div>
 				)}
 			</div>
