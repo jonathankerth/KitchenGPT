@@ -1,12 +1,10 @@
-// App.js
-import React, { useState } from "react";
+import React from "react";
 import Chat from "./components/Chat.js";
 import "./App.css";
 
 function App() {
-	const [darkMode, setDarkMode] = useState(false); // Add this state
 	return (
-		<div className={`App ${darkMode ? "dark-mode" : ""}`}>
+		<div className="App">
 			<header className="App-header">
 				<h1>KitchenGPT</h1>
 				<p>Your personal cooking assistant</p>
